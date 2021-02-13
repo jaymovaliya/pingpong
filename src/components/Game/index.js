@@ -1,5 +1,6 @@
 import React, { memo, useState } from "react";
 import { Card } from "../../Core-UI";
+import HTTPService from "../../services/HTTPService";
 import "./styles.scss";
 
 function Game(props){
@@ -14,8 +15,32 @@ function Game(props){
         currentWinner = params.player2;
     }
     if(!params){
+        props.history.push({
+            pathname: "/"
+        });
         return null;
     }
+
+    const addGame = async () => {
+        const gameObj = {
+            player1: params.player1,
+            player2: params.player2,
+            player1Score: player1Cnt,
+            player2Score: player2Cnt,
+            winner: currentWinner,
+            margin: Math.abs(player1Cnt - player2Cnt)
+        };
+        try {
+            await HTTPService.post('/games/store', gameObj);
+            alert("Game Stores Successfully");
+            props.history.push({
+                pathname: "/"
+            });
+        } catch(err){
+            alert("Something went wrong at out end, Please retry!!!");
+        }
+    }
+
     return (
         <div className="Game">
             <Card>
@@ -47,7 +72,7 @@ function Game(props){
                     </div>
                 </div>
                 <div className="button-container">
-                <button className="submit-btn">
+                <button className="submit-btn" onClick={addGame}>
                     Save Game
                 </button>
                 </div>
