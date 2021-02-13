@@ -21,7 +21,6 @@ app.use(express.static(path.join(__dirname, '../build')));
 
 (async () => {
     try {
-        console.log(process.env.DB);
         await mongoose.connect(process.env.DB, {
             useUnifiedTopology: true,
             useNewUrlParser: true,

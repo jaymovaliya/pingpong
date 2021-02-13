@@ -32,7 +32,7 @@ function Game(props){
         };
         try {
             await HTTPService.post('/games/store', gameObj);
-            alert("Game Stores Successfully");
+            alert("Game Stored Successfully");
             props.history.push({
                 pathname: "/"
             });
