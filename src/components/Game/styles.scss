@@ -1,0 +1,47 @@
+.Game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.player-group {
+    margin: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.player-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.win-txt {
+    color: var(--primary-color);
+    font-size: var(--normal-text-size);
+}
+
+.player-cnt {
+    margin-left: 10px;
+    font-size: var(--title-text-size);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.player-summary {
+    margin-top: 15px;
+    border-top: 2px solid var(--primary-color);
+    padding: 15px;
+}
+
+.summary-wrapper {
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.result-index {
+    margin-left: 15px;
+}
